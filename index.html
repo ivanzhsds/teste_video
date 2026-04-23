@@ -9,17 +9,10 @@ body {
   margin: 0;
   background: black;
   font-family: Arial;
-  overflow: hidden;
   color: white;
+  overflow: hidden;
 }
 
-.video {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-}
-
-/* slides */
 .slide {
   position: absolute;
   width: 100%;
@@ -29,44 +22,25 @@ body {
   align-items: center;
   text-align: center;
   opacity: 0;
+  transition: opacity 0.8s;
   padding: 20px;
 }
 
-/* texto */
+.ativo { opacity: 1; }
+
 .texto {
-  font-size: 40px;
+  font-size: 38px;
   font-weight: bold;
+  animation: anim 1s;
 }
 
-/* animação glow + aumento */
-.animar {
-  animation: efeito 1s ease-out forwards;
+@keyframes anim {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-@keyframes efeito {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-    color: white;
-    text-shadow: none;
-  }
-  50% {
-    transform: scale(1.3);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    color: #ff4d4d;
-    text-shadow:
-      0 0 10px red,
-      0 0 20px crimson,
-      0 0 40px red;
-  }
-}
-
-/* imagem */
 img {
-  width: 280px;
+  width: 300px;
   border-radius: 15px;
   transition: transform 1s;
 }
@@ -76,142 +50,119 @@ img {
 }
 
 /* fundos */
-.f1 { background: linear-gradient(black, crimson); }
-.f2 { background: linear-gradient(black, purple); }
-.f3 { background: linear-gradient(black, darkred); }
-
-/* barra */
-.barra {
-  position: absolute;
-  bottom: 0;
-  height: 5px;
-  background: red;
-  width: 0%;
-}
+.f1 { background: linear-gradient(black, #8b0000); }
+.f2 { background: linear-gradient(black, #4b0082); }
+.f3 { background: linear-gradient(black, #550000); }
 </style>
 </head>
 
 <body>
 
-<audio id="audio" autoplay>
+<audio id="audio">
   <source src="audio.mp3" type="audio/mp3">
 </audio>
 
-<div class="video">
+<!-- SLIDES ATÉ LIGUE 180 -->
 
-  <!-- SLIDES COM IMAGEM -->
+<div class="slide ativo f1">
+  <div class="texto">Você já parou para pensar no que é feminicídio?</div>
+</div>
 
-  <div class="slide f1 ativo">
-    <div>
-      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"><br><br>
-      <div class="texto">Você já parou para pensar no que é feminicídio?</div>
-    </div>
+<div class="slide f2">
+  <div class="texto">Não é apenas um crime comum</div>
+</div>
+
+<div class="slide f3">
+  <div class="texto">É uma violência baseada em gênero</div>
+</div>
+
+<div class="slide f1">
+  <div class="texto">Muitas mulheres vivem com medo todos os dias</div>
+</div>
+
+<div class="slide f2">
+  <div class="texto">E a violência começa de forma silenciosa</div>
+</div>
+
+<!-- IMAGEM MANTIDA -->
+<div class="slide f3">
+  <div>
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"><br><br>
+    <div class="texto">Nem toda dor é visível</div>
   </div>
+</div>
 
-  <div class="slide f2">
-    <div>
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9"><br><br>
-      <div class="texto">O silêncio também machuca</div>
-    </div>
+<div class="slide f1">
+  <div>
+    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91"><br><br>
+    <div class="texto">Controle não é cuidado</div>
   </div>
+</div>
 
-  <div class="slide f3">
-    <div>
-      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"><br><br>
-      <div class="texto">Nem toda dor é visível</div>
-    </div>
+<div class="slide f2">
+  <div>
+    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2"><br><br>
+    <div class="texto">Ciúmes excessivos são sinais</div>
   </div>
+</div>
 
-  <div class="slide f1">
-    <div>
-      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba"><br><br>
-      <div class="texto">Muitas mulheres vivem com medo</div>
-    </div>
+<div class="slide f3">
+  <div>
+    <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7"><br><br>
+    <div class="texto">Palavras também machucam</div>
   </div>
+</div>
 
-  <div class="slide f2">
-    <div>
-      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1"><br><br>
-      <div class="texto">Apoiar pode salvar vidas</div>
-    </div>
+<div class="slide f1">
+  <div>
+    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"><br><br>
+    <div class="texto">O medo impede pedidos de ajuda</div>
   </div>
+</div>
 
-  <div class="slide f3">
-    <div>
-      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"><br><br>
-      <div class="texto">Ainda há esperança</div>
-    </div>
+<div class="slide f2">
+  <div>
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1"><br><br>
+    <div class="texto">Apoiar pode salvar vidas</div>
   </div>
+</div>
 
-  <div class="slide f1">
-    <div class="texto">Denuncie — Ligue 180</div>
-  </div>
+<div class="slide f3">
+  <div class="texto">Denunciar pode salvar vidas</div>
+</div>
 
-  <div class="slide f2">
-    <div class="texto">Sua atitude pode salvar uma vida</div>
-  </div>
-
-  <!-- barra -->
-  <div class="barra" id="barra"></div>
-
+<div class="slide f1">
+  <div class="texto">Ligue 180</div>
 </div>
 
 <script>
 const slides = document.querySelectorAll(".slide");
-const barra = document.getElementById("barra");
 const audio = document.getElementById("audio");
 
 let atual = 0;
-let tempo = 4000;
+let ultimoTempo = 0;
 
-function animarTexto(slide) {
-  const texto = slide.querySelector(".texto");
-  if (!texto) return;
+// troca automática baseada no áudio
+const intervalo = 4;
 
-  texto.classList.remove("animar");
+audio.addEventListener("timeupdate", () => {
+  const tempoAtual = Math.floor(audio.currentTime);
 
-  setTimeout(() => {
-    texto.classList.add("animar");
-  }, 50);
-}
+  if (tempoAtual !== ultimoTempo && tempoAtual % intervalo === 0) {
+    if (atual < slides.length - 1) {
+      slides[atual].classList.remove("ativo");
+      atual++;
+      slides[atual].classList.add("ativo");
+    }
+  }
 
-function trocarSlide() {
-  slides[atual].style.opacity = 0;
-  atual++;
+  ultimoTempo = tempoAtual;
+});
 
-  if (atual >= slides.length) return;
-
-  slides[atual].style.opacity = 1;
-  animarTexto(slides[atual]);
-
-  animarBarra();
-  setTimeout(trocarSlide, tempo);
-}
-
-function animarBarra() {
-  barra.style.transition = "none";
-  barra.style.width = "0%";
-
-  setTimeout(() => {
-    barra.style.transition = `width ${tempo}ms linear`;
-    barra.style.width = "100%";
-  }, 50);
-}
-
-// iniciar
-slides[0].style.opacity = 1;
-animarTexto(slides[0]);
-animarBarra();
-setTimeout(trocarSlide, tempo);
-
-// autoplay
-window.onload = () => {
-  audio.play().catch(() => {
-    document.body.addEventListener("click", () => {
-      audio.play();
-    });
-  });
-};
+// iniciar com clique
+document.body.addEventListener("click", () => {
+  audio.play();
+});
 </script>
 
 </body>
