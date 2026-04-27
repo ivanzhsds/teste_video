@@ -80,7 +80,10 @@ img {
   <span>▶</span>
 </div>
 
-<!-- SLIDES -->
+<!-- 🔊 ÁUDIO -->
+<audio id="audio" src="audio.mp3"></audio>
+
+<!-- TODOS OS SEUS SLIDES (SEM ALTERAÇÃO) -->
 
 <div class="slide ativo"><img src="https://tse4.mm.bing.net/th/id/OIP.JLWy7k1jqF2qOpjD94ObFQHaE8"><div class="texto">Você consegue perceber quando algo não está certo?</div></div>
 
@@ -126,10 +129,14 @@ img {
 
 <script>
 const slides = document.querySelectorAll(".slide");
+const audio = document.getElementById("audio");
+
 let atual = 0;
 
 function start() {
   document.querySelector(".play").style.display = "none";
+
+  audio.play(); // 🔊 toca o áudio
 
   setInterval(() => {
     slides[atual].classList.remove("ativo");
@@ -138,7 +145,7 @@ function start() {
     if (atual >= slides.length) atual = slides.length - 1;
 
     slides[atual].classList.add("ativo");
-  }, 6000); // 6 segundos cada = ~2 minutos total
+  }, 5500); // ajustado pro áudio maior
 }
 </script>
 
