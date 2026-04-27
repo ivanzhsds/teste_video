@@ -2,167 +2,144 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Combate ao Feminicídio</title>
+<title>Alerta sobre Feminicídio</title>
 
 <style>
 body {
   margin: 0;
-  background: black;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   font-family: Arial;
-  color: white;
+}
+
+.player {
+  width: 900px;
+  height: 500px;
+  position: relative;
+  background: black;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
 }
 
 .slide {
   position: absolute;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   opacity: 0;
-  transition: opacity 0.8s;
-  padding: 20px;
+  transition: opacity 1s;
 }
 
 .ativo { opacity: 1; }
 
-.texto {
-  font-size: 38px;
-  font-weight: bold;
-  animation: anim 1s;
-}
-
-@keyframes anim {
-  from { transform: scale(0.5); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
 img {
-  width: 300px;
-  border-radius: 15px;
-  transition: transform 1s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.45);
 }
 
-.slide.ativo img {
-  transform: scale(1.1);
+.texto {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  color: white;
+  font-weight: bold;
+  padding: 0 20px;
 }
 
-/* fundos */
-.f1 { background: linear-gradient(black, #8b0000); }
-.f2 { background: linear-gradient(black, #4b0082); }
-.f3 { background: linear-gradient(black, #550000); }
+.play {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.play span {
+  font-size: 90px;
+  color: white;
+}
 </style>
 </head>
 
 <body>
 
-<audio id="audio">
-  <source src="audio.mp3" type="audio/mp3">
-</audio>
+<div class="player">
 
-<!-- SLIDES ATÉ LIGUE 180 -->
-
-<div class="slide ativo f1">
-  <div class="texto">Você já parou para pensar no que é feminicídio?</div>
+<div class="play" onclick="start()">
+  <span>▶</span>
 </div>
 
-<div class="slide f2">
-  <div class="texto">Não é apenas um crime comum</div>
-</div>
+<!-- SLIDES -->
 
-<div class="slide f3">
-  <div class="texto">É uma violência baseada em gênero</div>
-</div>
+<div class="slide ativo"><img src="https://tse4.mm.bing.net/th/id/OIP.JLWy7k1jqF2qOpjD94ObFQHaE8"><div class="texto">Você consegue perceber quando algo não está certo?</div></div>
 
-<div class="slide f1">
-  <div class="texto">Muitas mulheres vivem com medo todos os dias</div>
-</div>
+<div class="slide"><img src="https://img.freepik.com/fotos-premium/linda-mulher-misteriosa-e-seria-na-escuridao-olhando-o-retrato-dramatico-em-close-up-em-sombra-escura-arte-baixa-close-up-vista-frontal-em-fundo-preto-preto-e-branco_908985-5851.jpg"><div class="texto">Nem toda violência é visível logo de cara…</div></div>
 
-<div class="slide f2">
-  <div class="texto">E a violência começa de forma silenciosa</div>
-</div>
+<div class="slide"><img src="https://tse1.explicit.bing.net/th/id/OIP.xHErk--lqf1vnpGxQodmTQHaLH"><div class="texto">Às vezes, ela começa em pequenos sinais.</div></div>
 
-<!-- IMAGEM MANTIDA -->
-<div class="slide f3">
-  <div>
-    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"><br><br>
-    <div class="texto">Nem toda dor é visível</div>
-  </div>
-</div>
+<div class="slide"><img src="https://tse1.mm.bing.net/th/id/OIP.a8I3yrGuiLkJV2vVHL_PFwHaE8"><div class="texto">Tudo pode começar com discussões frequentes…</div></div>
 
-<div class="slide f1">
-  <div>
-    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91"><br><br>
-    <div class="texto">Controle não é cuidado</div>
-  </div>
-</div>
+<div class="slide"><img src="https://tse3.mm.bing.net/th/id/OIP.jZitDEYsOcj4UxCTii2HWQHaE8"><div class="texto">Ciúmes exagerado vira controle.</div></div>
 
-<div class="slide f2">
-  <div>
-    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2"><br><br>
-    <div class="texto">Ciúmes excessivos são sinais</div>
-  </div>
-</div>
+<div class="slide"><img src="https://tse3.explicit.bing.net/th/id/OIP.-krTXi3GIiGUcbzuA8NwcwHaD8"><div class="texto">Querer decidir tudo não é cuidado.</div></div>
 
-<div class="slide f3">
-  <div>
-    <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7"><br><br>
-    <div class="texto">Palavras também machucam</div>
-  </div>
-</div>
+<div class="slide"><img src="https://tse1.mm.bing.net/th/id/OIP.7mQB8dRsVLnYaKFLI-zuBQHaE7"><div class="texto">Palavras machucam mais do que parecem.</div></div>
 
-<div class="slide f1">
-  <div>
-    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"><br><br>
-    <div class="texto">O medo impede pedidos de ajuda</div>
-  </div>
-</div>
+<div class="slide"><img src="https://tse1.mm.bing.net/th/id/OIP.uqP6Q_0yIqO4Ij2SyD00YAHaFX"><div class="texto">A dor começa a crescer em silêncio.</div></div>
 
-<div class="slide f2">
-  <div>
-    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1"><br><br>
-    <div class="texto">Apoiar pode salvar vidas</div>
-  </div>
-</div>
+<div class="slide"><img src="https://tse4.mm.bing.net/th/id/OIP.a-YLkruIRp4hU6zjVn_tIAHaE7"><div class="texto">A autoestima vai sendo destruída aos poucos.</div></div>
 
-<div class="slide f3">
-  <div class="texto">Denunciar pode salvar vidas</div>
-</div>
+<div class="slide"><img src="https://tse2.mm.bing.net/th/id/OIP.eIZmTDaVLn258R6MS7v0OwHaE1"><div class="texto">A vítima começa a duvidar de si mesma.</div></div>
 
-<div class="slide f1">
-  <div class="texto">Ligue 180</div>
+<div class="slide"><img src="https://tse2.mm.bing.net/th/id/OIP._APZhX22lG66QIJeC6pvhgHaE7"><div class="texto">Ela se afasta de quem poderia ajudar.</div></div>
+
+<div class="slide"><img src="https://tse1.mm.bing.net/th/id/OIP.ZCa6OCUjl9Mz6lBycqihPwHaE4"><div class="texto">A solidão passa a fazer parte da rotina.</div></div>
+
+<div class="slide"><img src="https://tse2.mm.bing.net/th/id/OIP.a3Y8aeeB7bsvRq9P_7cZ5AAAAA"><div class="texto">O medo começa a controlar tudo.</div></div>
+
+<div class="slide"><img src="https://tse2.mm.bing.net/th/id/OIP.a3Y8aeeB7bsvRq9P_7cZ5AAAAA"><div class="texto">Medo de falar… medo de reagir…</div></div>
+
+<div class="slide"><img src="https://tse3.mm.bing.net/th/id/OIP.2N2c5zJlznJRgAf-LMMkCQHaGf"><div class="texto">Quando nada muda, a situação piora.</div></div>
+
+<div class="slide"><img src="https://tse3.mm.bing.net/th/id/OIP.C6nW6vUcsgrR7xsvSqT8rgHaE7"><div class="texto">E o risco aumenta cada vez mais.</div></div>
+
+<div class="slide"><img src="https://tse4.mm.bing.net/th/id/OIP.zeUQmARGFvYoseY9z2HWagHaFI"><div class="texto">Mas ainda existe saída.</div></div>
+
+<div class="slide"><img src="https://tse1.mm.bing.net/th/id/OIP.VzfacE_E7uxip8RpWBLbjAHaE8"><div class="texto">Alguém pode fazer a diferença.</div></div>
+
+<div class="slide"><img src="https://tse1.mm.bing.net/th/id/OIP.I3DwDA328blXtTMt3MIFcQHaE7"><div class="texto">Buscar ajuda é um ato de coragem.</div></div>
+
+<div class="slide"><img src="https://tse4.mm.bing.net/th/id/OIP.SgQkKrtNOv0vYtHb2t7DxgHaDe"><div class="texto">Denunciar salva vidas. Ligue 180.</div></div>
+
 </div>
 
 <script>
 const slides = document.querySelectorAll(".slide");
-const audio = document.getElementById("audio");
-
 let atual = 0;
-let ultimoTempo = 0;
 
-// troca automática baseada no áudio
-const intervalo = 4;
+function start() {
+  document.querySelector(".play").style.display = "none";
 
-audio.addEventListener("timeupdate", () => {
-  const tempoAtual = Math.floor(audio.currentTime);
+  setInterval(() => {
+    slides[atual].classList.remove("ativo");
+    atual++;
 
-  if (tempoAtual !== ultimoTempo && tempoAtual % intervalo === 0) {
-    if (atual < slides.length - 1) {
-      slides[atual].classList.remove("ativo");
-      atual++;
-      slides[atual].classList.add("ativo");
-    }
-  }
+    if (atual >= slides.length) atual = slides.length - 1;
 
-  ultimoTempo = tempoAtual;
-});
-
-// iniciar com clique
-document.body.addEventListener("click", () => {
-  audio.play();
-});
+    slides[atual].classList.add("ativo");
+  }, 6000); // 6 segundos cada = ~2 minutos total
+}
 </script>
 
 </body>
